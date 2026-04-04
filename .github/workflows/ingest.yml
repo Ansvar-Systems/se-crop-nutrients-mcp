@@ -1,0 +1,59 @@
+name: Re-ingest Data
+
+on:
+  schedule:
+    - cron: "0 4 1 * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Force full rebuild even if no changes detected"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - run: npm ci
+
+      - name: Fetch upstream data
+        run: npm run ingest:fetch
+
+      - name: Check for changes
+        id: diff
+        run: |
+          if [ "${{ inputs.force }}" = "true" ] || npm run ingest:diff 2>&1 | grep -q "changes detected"; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No upstream changes detected. Skipping rebuild."
+          fi
+
+      - name: Rebuild database
+        if: steps.diff.outputs.changed == 'true'
+        run: npm run ingest:full
+
+      - name: Run tests
+        if: steps.diff.outputs.changed == 'true'
+        run: npm test
+
+      - name: Update coverage
+        if: steps.diff.outputs.changed == 'true'
+        run: npm run coverage:update
+
+      - name: Commit updated database
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/database.db data/coverage.json data/.source-hashes.json
+          git diff --staged --quiet || git commit -m "chore: re-ingest data $(date +%Y-%m-%d)"
+          git push
