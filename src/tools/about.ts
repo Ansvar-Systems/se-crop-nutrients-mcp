@@ -5,11 +5,15 @@ export function handleAbout() {
   return {
     name: 'Sweden Crop Nutrients MCP',
     description:
-      'UK crop nutrient recommendations based on AHDB RB209. Provides NPK planning, ' +
-      'soil classification, crop requirements, and commodity pricing for agricultural decision-making.',
+      'Swedish crop nutrient recommendations based on Jordbruksverket guidelines. Provides NPK planning, ' +
+      'soil classification (SGU/SLU), crop requirements, and commodity pricing (SEK) for Swedish agriculture.',
     version: '0.1.0',
     jurisdiction: [...SUPPORTED_JURISDICTIONS],
-    data_sources: ['AHDB RB209', 'DEFRA Agricultural Price Indices', 'AHDB Market Data'],
+    data_sources: [
+      'Jordbruksverket (Swedish Board of Agriculture)',
+      'Greppa Näringen (nutrient advisory service)',
+      'SLU (Swedish University of Agricultural Sciences)',
+    ],
     tools_count: 10,
     links: {
       homepage: 'https://ansvar.eu/open-agriculture',

@@ -83,7 +83,7 @@ function initSchema(db: BetterSqlite3.Database): void {
       crop_id TEXT REFERENCES crops(id),
       market TEXT,
       price_per_tonne REAL,
-      currency TEXT DEFAULT 'GBP',
+      currency TEXT DEFAULT 'SEK',
       price_source TEXT NOT NULL,
       published_date TEXT,
       retrieved_at TEXT,
@@ -206,7 +206,7 @@ function tryFts(
 function sanitizeFtsInput(query: string): string {
   return query
     .replace(/["""''„‚«»]/g, '"')
-    .replace(/[^a-zA-Z0-9\s*"_-]/g, ' ')
+    .replace(/[^a-zA-Z0-9\säåöÄÅÖéèêëüûîïôøæÆØ\s*"_-]/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
 }

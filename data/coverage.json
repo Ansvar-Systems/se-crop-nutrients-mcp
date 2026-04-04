@@ -1,0 +1,11 @@
+{
+  "mcp_name": "Sweden Crop Nutrients MCP",
+  "jurisdiction": "SE",
+  "build_date": "2026-04-04",
+  "crops": 20,
+  "soil_types": 8,
+  "nutrient_recommendations": 832,
+  "commodity_prices": 25,
+  "fts_entries": 176,
+  "source_hash": "72300b77f9097288"
+}

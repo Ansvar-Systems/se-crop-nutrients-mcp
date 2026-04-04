@@ -4,13 +4,13 @@
 [![GHCR](https://github.com/ansvar-systems/se-crop-nutrients-mcp/actions/workflows/ghcr-build.yml/badge.svg)](https://github.com/ansvar-systems/se-crop-nutrients-mcp/actions/workflows/ghcr-build.yml)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-UK crop nutrient recommendations via the [Model Context Protocol](https://modelcontextprotocol.io). Query AHDB RB209 data, soil types, NPK planning, and commodity prices -- all from your AI assistant.
+Swedish crop nutrient recommendations via the [Model Context Protocol](https://modelcontextprotocol.io). Query Jordbruksverket data, Swedish soil types (SGU/SLU), NPK planning, and commodity prices in SEK -- all from your AI assistant.
 
 Part of [Ansvar Open Agriculture](https://ansvar.eu/open-agriculture).
 
 ## Why This Exists
 
-Farmers and agronomists need quick access to nutrient recommendation tables, commodity prices, and soil data. This information is published by AHDB and DEFRA but is locked in PDFs, spreadsheets, and web pages that AI assistants cannot query directly. This MCP server makes it all searchable.
+Swedish farmers and agronomists need quick access to Jordbruksverket nutrient recommendation tables, commodity prices, and soil data. This information is published by Jordbruksverket, Greppa Näringen, and SLU but is locked in PDFs, spreadsheets, and web pages that AI assistants cannot query directly. This MCP server covers 20 Swedish crops (höstvete, vårkorn, höstraps, vall, potatis, and more), 8 Swedish soil types, and current SEK commodity prices.
 
 ## Quick Start
 
@@ -21,7 +21,7 @@ Add to `claude_desktop_config.json`:
 ```json
 {
   "mcpServers": {
-    "uk-crop-nutrients": {
+    "se-crop-nutrients": {
       "command": "npx",
       "args": ["-y", "@ansvar/se-crop-nutrients-mcp"]
     }
@@ -32,7 +32,7 @@ Add to `claude_desktop_config.json`:
 ### Claude Code
 
 ```bash
-claude mcp add uk-crop-nutrients npx @ansvar/se-crop-nutrients-mcp
+claude mcp add se-crop-nutrients npx @ansvar/se-crop-nutrients-mcp
 ```
 
 ### Streamable HTTP (remote)
@@ -57,20 +57,21 @@ npx @ansvar/se-crop-nutrients-mcp
 
 Ask your AI assistant:
 
-- "What NPK does winter wheat need on heavy clay soil?"
-- "What's the current price of spring barley?"
-- "Calculate gross margin for 8.5 t/ha winter wheat at 520/ha input costs"
-- "What soil group is sandy loam in RB209?"
-- "Search for nitrogen recommendations for oilseed rape"
+- "Vad behöver höstvete för NPK på styv lera?"
+- "Vad kostar vårkorn per ton?"
+- "Beräkna bruttomarginal för 7 t/ha höstvete vid 5000 kr/ha insatskostnad"
+- "Vilken jordgrupp tillhör moränjord?"
+- "Sök kväverekommendationer för höstraps"
+- "What nutrient plan does spring barley need on sandy soil?"
 
 ## Stats
 
 | Metric | Value |
 |--------|-------|
 | Tools | 10 (3 meta + 7 domain) |
-| Jurisdiction | GB |
-| Data sources | AHDB RB209, DEFRA Price Indices, AHDB Market Data |
-| License (data) | Open Government Licence v3 |
+| Jurisdiction | SE |
+| Data sources | Jordbruksverket, Greppa Näringen, SLU |
+| License (data) | Swedish Open Data Licence |
 | License (code) | Apache-2.0 |
 | Transport | stdio + Streamable HTTP |
 
@@ -112,4 +113,4 @@ Issues and pull requests welcome. For security vulnerabilities, email security@a
 
 ## License
 
-Apache-2.0. Data sourced under Open Government Licence v3.
+Apache-2.0. Data sourced from Jordbruksverket, Greppa Näringen, and SLU under Swedish Open Data Licence.
