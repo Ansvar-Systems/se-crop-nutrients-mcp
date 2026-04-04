@@ -46,7 +46,7 @@ export function handleCalculateMargin(db: Database, args: MarginArgs) {
     yield_t_ha: args.yield_t_ha,
     price_per_tonne: pricePerTonne,
     price_source: priceSource,
-    currency: 'GBP',
+    currency: 'SEK',
     revenue_per_ha: Math.round(revenue * 100) / 100,
     input_costs_per_ha: inputCosts,
     gross_margin_per_ha: Math.round(grossMargin * 100) / 100,

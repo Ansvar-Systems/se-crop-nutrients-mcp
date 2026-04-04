@@ -54,7 +54,7 @@ const TOOLS = [
   },
   {
     name: 'get_nutrient_plan',
-    description: 'Get NPK fertiliser recommendation for a specific crop and soil type. Based on AHDB RB209.',
+    description: 'Get NPK fertiliser recommendation for a specific crop and soil type. Based on Jordbruksverket guidelines.',
     inputSchema: {
       type: 'object' as const,
       properties: {

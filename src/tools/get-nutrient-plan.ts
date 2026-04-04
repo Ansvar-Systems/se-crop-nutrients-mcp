@@ -91,6 +91,6 @@ export function handleGetNutrientPlan(db: Database, args: NutrientPlanArgs) {
     },
     rb209_section: rec.rb209_section,
     notes: rec.notes,
-    _meta: buildMeta({ source_url: 'https://ahdb.org.uk/nutrient-management-guide' }),
+    _meta: buildMeta({ source_url: 'https://jordbruksverket.se/vaxter/odling/vaxtnaring-och-godsling' }),
   };
 }

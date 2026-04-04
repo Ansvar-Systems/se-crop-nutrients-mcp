@@ -56,7 +56,7 @@ export function handleGetCommodityPrice(db: Database, args: PriceArgs) {
     ...(stalenessWarning ? { staleness_warning: stalenessWarning } : {}),
     _meta: buildMeta({
       data_age: price.published_date ?? 'unknown',
-      source_url: 'https://ahdb.org.uk/cereals-oilseeds/cereal-and-oilseed-markets',
+      source_url: 'https://jordbruksverket.se/om-jordbruksverket/jordbruksverkets-statistik',
     }),
   };
 }
