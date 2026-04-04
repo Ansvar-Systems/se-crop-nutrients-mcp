@@ -2,10 +2,19 @@
   "mcp_name": "Sweden Crop Nutrients MCP",
   "jurisdiction": "SE",
   "build_date": "2026-04-04",
-  "crops": 20,
-  "soil_types": 8,
-  "nutrient_recommendations": 832,
-  "commodity_prices": 25,
-  "fts_entries": 176,
-  "source_hash": "72300b77f9097288"
+  "crops": 66,
+  "soil_types": 15,
+  "nutrient_recommendations": 10168,
+  "commodity_prices": 62,
+  "fts_entries": 2061,
+  "source_hash": "309d7ab769f0fb98",
+  "sources": [
+    "Jordbruksverket \"Rekommendationer för gödsling och kalkning 2026\" (JO21:9)",
+    "Jordbruksverket \"Riktgivor och strategier för gödsling\" (2026)",
+    "Jordbruksverket \"Skörd av spannmål, trindsäd, oljeväxter, potatis och slåttervall 2024. Slutlig statistik\"",
+    "Jordbruksaktuellt / Lantmännen spot prices (2026-03-23)",
+    "Greppa Näringen växtnäringsrådgivning",
+    "SLU Markinfo jordklassificering",
+    "Yara Sverige gödslingsråd"
+  ]
 }
