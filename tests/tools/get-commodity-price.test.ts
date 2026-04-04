@@ -20,9 +20,9 @@ describe('get_commodity_price tool', () => {
 
   test('returns price for winter wheat', () => {
     const result = handleGetCommodityPrice(db, { crop: 'winter-wheat' });
-    expect(result).toHaveProperty('price_per_tonne', 195.0);
-    expect(result).toHaveProperty('currency', 'GBP');
-    expect(result).toHaveProperty('price_source', 'ahdb_market');
+    expect(result).toHaveProperty('price_per_tonne', 2150.0);
+    expect(result).toHaveProperty('currency', 'SEK');
+    expect(result).toHaveProperty('price_source', 'jordbruksverket_market');
   });
 
   test('returns not_found for unknown crop', () => {
@@ -33,5 +33,10 @@ describe('get_commodity_price tool', () => {
   test('includes source attribution', () => {
     const result = handleGetCommodityPrice(db, { crop: 'spring-barley' });
     expect(result).toHaveProperty('source_attribution');
+  });
+
+  test('rejects unsupported jurisdiction', () => {
+    const result = handleGetCommodityPrice(db, { crop: 'winter-wheat', jurisdiction: 'NO' });
+    expect(result).toHaveProperty('error', 'jurisdiction_not_supported');
   });
 });

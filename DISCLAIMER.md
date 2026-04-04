@@ -1,24 +1,24 @@
 # Disclaimer
 
-This MCP server provides agricultural data for informational purposes only.
+This MCP server provides Swedish agricultural data for informational purposes only.
 
 ## Not Professional Advice
 
-The data served by this tool does not constitute professional agricultural, agronomic, or financial advice. Nutrient recommendations, commodity prices, and other data points are based on published UK government and AHDB sources, but individual field conditions vary. Always consult a qualified agronomist or FACTS-qualified advisor before making nutrient management decisions.
+The data served by this tool does not constitute professional agricultural, agronomic, or financial advice. Nutrient recommendations, commodity prices, and other data points are based on published Swedish government and research sources, but individual field conditions vary. Always consult a qualified agronomist or a Greppa Naringen advisor before making nutrient management decisions.
 
 ## Data Sources
 
 All data is sourced from:
 
-- **AHDB RB209 Nutrient Management Guide** -- Crown Copyright, Agriculture and Horticulture Development Board
-- **DEFRA Agricultural Price Indices** -- Crown Copyright, Department for Environment, Food and Rural Affairs
-- **AHDB Market Data** -- Agriculture and Horticulture Development Board
+- **Jordbruksverket (Swedish Board of Agriculture)** -- official crop nutrient recommendations and agricultural statistics
+- **Greppa Naringen** -- nutrient advisory service funded by Jordbruksverket and the EU
+- **SLU (Swedish University of Agricultural Sciences)** -- soil classification and crop research
 
-All data is used under the [Open Government Licence v3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
+Data is used in accordance with Swedish public access principles (offentlighetsprincipen) and respective publication terms.
 
 ## Currency
 
-Agricultural data changes. Nutrient recommendations are updated periodically by AHDB. Commodity prices change daily. This tool shows the data available at the time of its last ingestion run. Check `check_data_freshness` for the age of the data.
+Agricultural data changes. Nutrient recommendations are updated periodically by Jordbruksverket. Commodity prices change daily. This tool shows the data available at the time of its last ingestion run. Check `check_data_freshness` for the age of the data.
 
 ## No Warranty
 

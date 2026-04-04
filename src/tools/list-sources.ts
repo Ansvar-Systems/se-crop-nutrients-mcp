@@ -17,39 +17,39 @@ export function handleListSources(db: Database): { sources: Source[]; _meta: Ret
 
   const sources: Source[] = [
     {
-      name: 'AHDB RB209 Nutrient Management Guide',
-      authority: 'Agriculture and Horticulture Development Board',
-      official_url: 'https://ahdb.org.uk/nutrient-management-guide',
+      name: 'Jordbruksverket Vaxtnaringslara',
+      authority: 'Jordbruksverket (Swedish Board of Agriculture)',
+      official_url: 'https://jordbruksverket.se/vaxter/odling/vaxtnaring-och-godsling',
       retrieval_method: 'HTML_SCRAPE',
       update_frequency: 'annual',
-      license: 'Open Government Licence v3',
-      coverage: 'NPK recommendations for all major UK crops by soil type and SNS index',
+      license: 'Swedish public access (offentlighetsprincipen)',
+      coverage: 'NPK recommendations for major Swedish crops by soil type and previous crop',
       last_retrieved: lastIngest?.value,
     },
     {
-      name: 'DEFRA Agricultural Price Indices',
-      authority: 'Department for Environment, Food and Rural Affairs',
-      official_url: 'https://www.gov.uk/government/statistics/agricultural-price-indices',
+      name: 'Jordbruksverket Prisstatistik',
+      authority: 'Jordbruksverket (Swedish Board of Agriculture)',
+      official_url: 'https://jordbruksverket.se/om-jordbruksverket/jordbruksverkets-statistik',
       retrieval_method: 'BULK_DOWNLOAD',
       update_frequency: 'monthly',
-      license: 'Open Government Licence v3',
-      coverage: 'UK agricultural commodity prices',
+      license: 'Swedish public access (offentlighetsprincipen)',
+      coverage: 'Swedish agricultural commodity prices in SEK',
       last_retrieved: lastIngest?.value,
     },
     {
-      name: 'AHDB Market Data',
-      authority: 'Agriculture and Horticulture Development Board',
-      official_url: 'https://ahdb.org.uk/cereals-oilseeds/cereal-and-oilseed-markets',
+      name: 'Greppa Naringen',
+      authority: 'Greppa Naringen / Jordbruksverket',
+      official_url: 'https://greppa.nu',
       retrieval_method: 'HTML_SCRAPE',
-      update_frequency: 'weekly',
-      license: 'Open Government Licence v3',
-      coverage: 'UK delivered and ex-farm cereal and oilseed prices',
+      update_frequency: 'quarterly',
+      license: 'Swedish public access (offentlighetsprincipen)',
+      coverage: 'Nutrient advisory guidance for Swedish farming conditions',
       last_retrieved: lastIngest?.value,
     },
   ];
 
   return {
     sources,
-    _meta: buildMeta({ source_url: 'https://ahdb.org.uk/nutrient-management-guide' }),
+    _meta: buildMeta({ source_url: 'https://jordbruksverket.se/vaxter/odling/vaxtnaring-och-godsling' }),
   };
 }

@@ -18,22 +18,22 @@ describe('get_nutrient_plan tool', () => {
     if (existsSync(TEST_DB)) unlinkSync(TEST_DB);
   });
 
-  test('returns NPK for winter wheat on heavy clay', () => {
-    const result = handleGetNutrientPlan(db, { crop: 'winter-wheat', soil_type: 'heavy-clay' });
+  test('returns NPK for winter wheat on styv lera', () => {
+    const result = handleGetNutrientPlan(db, { crop: 'winter-wheat', soil_type: 'styv-lera', sns_index: 2 });
     expect(result).toHaveProperty('recommendation');
     const rec = (result as { recommendation: { nitrogen_kg_ha: number; phosphate_kg_ha: number; potash_kg_ha: number } }).recommendation;
-    expect(rec.nitrogen_kg_ha).toBe(180);
-    expect(rec.phosphate_kg_ha).toBe(45);
-    expect(rec.potash_kg_ha).toBe(55);
+    expect(rec.nitrogen_kg_ha).toBe(170);
+    expect(rec.phosphate_kg_ha).toBe(40);
+    expect(rec.potash_kg_ha).toBe(50);
   });
 
   test('rejects unsupported jurisdiction', () => {
-    const result = handleGetNutrientPlan(db, { crop: 'winter-wheat', soil_type: 'heavy-clay', jurisdiction: 'SE' });
+    const result = handleGetNutrientPlan(db, { crop: 'winter-wheat', soil_type: 'styv-lera', jurisdiction: 'GB' });
     expect(result).toHaveProperty('error', 'jurisdiction_not_supported');
   });
 
   test('returns not_found for unknown crop', () => {
-    const result = handleGetNutrientPlan(db, { crop: 'turnips', soil_type: 'heavy-clay' });
+    const result = handleGetNutrientPlan(db, { crop: 'turnips', soil_type: 'styv-lera' });
     expect(result).toHaveProperty('error', 'not_found');
   });
 
@@ -43,7 +43,7 @@ describe('get_nutrient_plan tool', () => {
   });
 
   test('looks up by crop name case-insensitively', () => {
-    const result = handleGetNutrientPlan(db, { crop: 'Winter Wheat', soil_type: 'heavy-clay' });
+    const result = handleGetNutrientPlan(db, { crop: 'Höstvete', soil_type: 'styv-lera' });
     expect(result).toHaveProperty('recommendation');
   });
 });
