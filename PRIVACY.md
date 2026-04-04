@@ -1,23 +1,24 @@
-# Privacy Statement
+# Privacy Policy
 
-## No Data Collection
+## Data Collection
 
-This MCP server:
+This MCP server does **not** collect, store, or transmit any personal data.
 
-- Does **not** collect, store, or transmit any user data
-- Does **not** use cookies, analytics, or telemetry
-- Does **not** require user accounts or authentication
-- Does **not** log queries or usage patterns
-- Does **not** store any client-side state
+## Data Sources
 
-## Data Served
+All data returned by this server is sourced from publicly available Swedish government publications (Jordbruksverket, Greppa Naringen, SLU) and used under applicable open data licences.
 
-All data returned by this server is sourced from publicly available UK government and AHDB publications. No personal data, proprietary data, or confidential information is included.
+## No Tracking
 
-## Self-Hosting
+- No cookies
+- No analytics
+- No telemetry
+- No user data stored
 
-This server can be self-hosted. When you run it locally via npm or Docker, all processing happens on your machine. No external network calls are made at query time -- all data is embedded in the SQLite database.
+## Network Requests
+
+When running via stdio transport (npm), the server makes no network requests. When running via Streamable HTTP (Docker), it serves responses to incoming MCP protocol requests only.
 
 ## Contact
 
-For privacy questions: privacy@ansvar.eu
+For privacy questions: info@ansvar.eu

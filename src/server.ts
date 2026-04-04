@@ -46,7 +46,7 @@ const TOOLS = [
       properties: {
         query: { type: 'string', description: 'Free-text search query' },
         crop_group: { type: 'string', description: 'Filter by crop group (e.g. cereals, oilseeds)' },
-        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: GB)' },
+        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: SE)' },
         limit: { type: 'number', description: 'Max results (default: 20, max: 50)' },
       },
       required: ['query'],
@@ -62,7 +62,7 @@ const TOOLS = [
         soil_type: { type: 'string', description: 'Soil type ID or name (e.g. heavy-clay)' },
         sns_index: { type: 'number', description: 'Soil Nitrogen Supply index (0-6)' },
         previous_crop: { type: 'string', description: 'Previous crop group for rotation adjustment' },
-        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: GB)' },
+        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: SE)' },
       },
       required: ['crop', 'soil_type'],
     },
@@ -75,7 +75,7 @@ const TOOLS = [
       properties: {
         soil_type: { type: 'string', description: 'Soil type ID or name' },
         texture: { type: 'string', description: 'Soil texture (e.g. clay, sand, loam)' },
-        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: GB)' },
+        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: SE)' },
       },
     },
   },
@@ -86,7 +86,7 @@ const TOOLS = [
       type: 'object' as const,
       properties: {
         crop_group: { type: 'string', description: 'Filter by crop group (e.g. cereals)' },
-        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: GB)' },
+        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: SE)' },
       },
     },
   },
@@ -97,7 +97,7 @@ const TOOLS = [
       type: 'object' as const,
       properties: {
         crop: { type: 'string', description: 'Crop ID or name' },
-        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: GB)' },
+        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: SE)' },
       },
       required: ['crop'],
     },
@@ -110,7 +110,7 @@ const TOOLS = [
       properties: {
         crop: { type: 'string', description: 'Crop ID or name' },
         market: { type: 'string', description: 'Market type (e.g. ex-farm, delivered)' },
-        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: GB)' },
+        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: SE)' },
       },
       required: ['crop'],
     },
@@ -125,7 +125,7 @@ const TOOLS = [
         yield_t_ha: { type: 'number', description: 'Expected yield in tonnes per hectare' },
         price_per_tonne: { type: 'number', description: 'Override price (GBP/t). If omitted, uses latest market price.' },
         input_costs: { type: 'number', description: 'Total input costs per hectare (GBP). Default: 0' },
-        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: GB)' },
+        jurisdiction: { type: 'string', description: 'ISO 3166-1 alpha-2 code (default: SE)' },
       },
       required: ['crop', 'yield_t_ha'],
     },

@@ -74,7 +74,7 @@ function initSchema(db: BetterSqlite3.Database): void {
       k_rec_kg_ha REAL,
       s_rec_kg_ha REAL,
       notes TEXT,
-      rb209_section TEXT,
+      source_section TEXT,
       jurisdiction TEXT NOT NULL DEFAULT 'SE'
     );
 

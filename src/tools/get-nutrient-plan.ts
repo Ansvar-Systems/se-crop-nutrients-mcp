@@ -64,7 +64,7 @@ export function handleGetNutrientPlan(db: Database, args: NutrientPlanArgs) {
     sns_index: number;
     previous_crop_group: string;
     notes: string;
-    rb209_section: string;
+    source_section: string;
   }>(sql, params);
 
   if (!rec) {
@@ -89,7 +89,7 @@ export function handleGetNutrientPlan(db: Database, args: NutrientPlanArgs) {
       potash_kg_ha: rec.k_rec_kg_ha,
       sulphur_kg_ha: rec.s_rec_kg_ha,
     },
-    rb209_section: rec.rb209_section,
+    source_section: rec.source_section,
     notes: rec.notes,
     _meta: buildMeta({ source_url: 'https://jordbruksverket.se/vaxter/odling/vaxtnaring-och-godsling' }),
   };

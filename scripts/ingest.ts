@@ -36,7 +36,7 @@ import { createHash } from 'crypto';
 // ── Swedish Crop Data ─────────────────────────────────────────────
 // Yield data: Jordbruksverket slutlig skörd 2024 (national averages).
 // NPK offtake: Jordbruksverket "Rekommendationer för gödsling och kalkning",
-// cross-referenced with PDA/AHDB offtake tables adapted for Swedish conditions.
+// cross-referenced with Jordbruksverket offtake tables for Swedish conditions.
 // Typical yield is rounded to a practical planning figure.
 
 const CROPS = [
@@ -598,7 +598,7 @@ function ingest(db: Database): void {
   console.log('Inserting nutrient recommendations...');
   for (const r of NUTRIENT_RECS) {
     db.run(
-      `INSERT INTO nutrient_recommendations (crop_id, soil_group, sns_index, previous_crop_group, n_rec_kg_ha, p_rec_kg_ha, k_rec_kg_ha, s_rec_kg_ha, notes, rb209_section, jurisdiction)
+      `INSERT INTO nutrient_recommendations (crop_id, soil_group, sns_index, previous_crop_group, n_rec_kg_ha, p_rec_kg_ha, k_rec_kg_ha, s_rec_kg_ha, notes, source_section, jurisdiction)
        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'SE')`,
       [r.crop_id, r.soil_group, r.sns_index, r.previous_crop_group, r.n, r.p, r.k, r.s, r.notes, r.section]
     );

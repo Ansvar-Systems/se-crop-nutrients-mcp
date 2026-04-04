@@ -39,12 +39,12 @@ export function createSeededDatabase(dbPath: string): Database {
 
   // Nutrient recommendations
   db.run(
-    `INSERT INTO nutrient_recommendations (crop_id, soil_group, sns_index, previous_crop_group, n_rec_kg_ha, p_rec_kg_ha, k_rec_kg_ha, s_rec_kg_ha, notes, rb209_section, jurisdiction)
+    `INSERT INTO nutrient_recommendations (crop_id, soil_group, sns_index, previous_crop_group, n_rec_kg_ha, p_rec_kg_ha, k_rec_kg_ha, s_rec_kg_ha, notes, source_section, jurisdiction)
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     ['winter-wheat', 3, 2, 'cereals', 170, 40, 50, 18, 'Rekommendation för höstvete på styv lera, Jordbruksverket riktlinjer', 'Kapitel 4', 'SE']
   );
   db.run(
-    `INSERT INTO nutrient_recommendations (crop_id, soil_group, sns_index, previous_crop_group, n_rec_kg_ha, p_rec_kg_ha, k_rec_kg_ha, s_rec_kg_ha, notes, rb209_section, jurisdiction)
+    `INSERT INTO nutrient_recommendations (crop_id, soil_group, sns_index, previous_crop_group, n_rec_kg_ha, p_rec_kg_ha, k_rec_kg_ha, s_rec_kg_ha, notes, source_section, jurisdiction)
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     ['spring-barley', 1, 3, 'cereals', 90, 35, 45, 12, 'Rekommendation för vårkorn på sandjord, Jordbruksverket riktlinjer', 'Kapitel 4', 'SE']
   );

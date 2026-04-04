@@ -1,16 +1,14 @@
 {
-  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.Ansvar-Systems/uk-crop-nutrients",
-  "description": "UK crop nutrient recommendations \u2014 RB209 NPK planning, soil types, commodity prices",
-  "repository": {
-    "url": "https://github.com/Ansvar-Systems/uk-crop-nutrients-mcp",
-    "source": "github"
-  },
-  "version": "0.1.0",
-  "remotes": [
-    {
-      "type": "streamable-http",
-      "url": "https://mcp.ansvar.eu/uk-crop-nutrients/mcp"
-    }
-  ]
+  "name": "se-crop-nutrients-mcp",
+  "display_name": "Sweden Crop Nutrients MCP",
+  "description": "Swedish crop nutrient recommendations via MCP -- Jordbruksverket, NPK planning, soil classification",
+  "vendor": "Ansvar Systems",
+  "vendor_url": "https://ansvar.eu",
+  "source_url": "https://github.com/ansvar-systems/se-crop-nutrients-mcp",
+  "license": "Apache-2.0",
+  "runtime": "node",
+  "transport": ["stdio", "streamable-http"],
+  "endpoints": {
+    "streamable-http": "https://mcp.ansvar.eu/se-crop-nutrients/mcp"
+  }
 }
