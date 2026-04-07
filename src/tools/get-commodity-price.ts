@@ -1,4 +1,5 @@
 import { buildMeta, buildStalenessWarning } from '../metadata.js';
+import { buildCitation } from '../citation.js';
 import { validateJurisdiction } from '../jurisdiction.js';
 import type { Database } from '../db.js';
 
@@ -58,5 +59,12 @@ export function handleGetCommodityPrice(db: Database, args: PriceArgs) {
       data_age: price.published_date ?? 'unknown',
       source_url: 'https://jordbruksverket.se/om-jordbruksverket/jordbruksverkets-statistik',
     }),
+    _citation: buildCitation(
+      `Price: ${price.crop_name}`,
+      `${price.crop_name} commodity price (${price.market})`,
+      'get_commodity_price',
+      { crop: args.crop, ...(args.market ? { market: args.market } : {}) },
+      'https://jordbruksverket.se/om-jordbruksverket/jordbruksverkets-statistik',
+    ),
   };
 }
