@@ -1,4 +1,5 @@
 import { buildMeta } from '../metadata.js';
+import { buildCitation } from '../citation.js';
 import { validateJurisdiction } from '../jurisdiction.js';
 import type { Database } from '../db.js';
 
@@ -92,5 +93,12 @@ export function handleGetNutrientPlan(db: Database, args: NutrientPlanArgs) {
     source_section: rec.source_section,
     notes: rec.notes,
     _meta: buildMeta({ source_url: 'https://jordbruksverket.se/vaxter/odling/vaxtnaring-och-godsling' }),
+    _citation: buildCitation(
+      `Nutrient plan: ${crop.name} on ${args.soil_type}`,
+      `Nutrient recommendation for ${crop.name}`,
+      'get_nutrient_plan',
+      { crop: args.crop, soil_type: args.soil_type },
+      'https://jordbruksverket.se/vaxter/odling/vaxtnaring-och-godsling',
+    ),
   };
 }

@@ -1,4 +1,5 @@
 import { buildMeta } from '../metadata.js';
+import { buildCitation } from '../citation.js';
 import { validateJurisdiction } from '../jurisdiction.js';
 import type { Database } from '../db.js';
 
@@ -35,5 +36,11 @@ export function handleGetCropDetails(db: Database, args: CropDetailsArgs) {
       unit: 'kg/ha at typical yield',
     },
     _meta: buildMeta(),
+    _citation: buildCitation(
+      `Crop: ${crop.name} (${crop.id})`,
+      crop.name,
+      'get_crop_details',
+      { crop: args.crop },
+    ),
   };
 }
